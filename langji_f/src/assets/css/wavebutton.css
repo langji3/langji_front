@@ -1,0 +1,44 @@
+.wavebutton{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-decoration: none;
+    padding: 0.75em 1em;
+    color: blue;
+    border: 0.15em solid blue;
+    border-radius: 2em;
+    transition:4s;
+  }
+  .wavebutton::before,
+  .wavebutton::after{
+    content: "";
+    position: absolute;
+    top:-1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba(0,0,255,0.25);
+    transition:4s;
+  }
+  .wavebutton::before{
+    left:-80%;
+    transform: translate3d(0,5em,0) rotate(-340deg);
+  }
+  .wavebutton::after{
+    right:-80%;
+    transform: translate3d(0,5em,0) rotate(390deg);
+  }
+  .wavebutton:hover,
+  .wavebutton:focus{
+    color:white;
+  }
+  .wavebutton:hover::before,
+  .wavebutton:hover::after,
+  .wavebutton:focus::before,
+  .wavebutton:focus::after{
+    transform:none;
+    background-color: rgba(0,0,255,0.75);
+  }

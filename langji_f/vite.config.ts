@@ -19,7 +19,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    extensions: [".js", ".vue", ".json", ".ts", ".tsx"]
   },
   server: {
     port: 80
