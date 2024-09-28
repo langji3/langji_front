@@ -1,5 +1,5 @@
 <template>
-    <div class="loading" :class="{ 'loading-out': isLoadingOut }">
+    <div class="loading">
         <svg viewBox='0 0 50 50'>
             <circle cx='25' cy='25' r='20'></circle>
         </svg>
@@ -8,14 +8,21 @@
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
-    const isLoadingOut = ref(false);
-    function loadingOut() {
-        isLoadingOut.value = true;
-        setTimeout(() => {
-            isLoadingOut.value = false;
-        }, 1000);
+import { defineExpose } from 'vue';
+function in_act(){
+    let container = document.querySelector('.loading')
+    if (container) {
+        container.classList.remove('loading_out');
     }
+}
+function out() {
+    let container = document.querySelector('.loading')
+    if (container) {
+        container.classList.add('loading_out');
+    }
+}
+defineExpose({out,in_act})
+
 </script>
 
 <style scoped>
@@ -66,19 +73,11 @@
         transition: 0.3s ease;
     }
 
-
-    .loading.loading-out {
-        animation: loadingOut 1s forwards;
+    .loading_out {
+        transform: translateY(100%);
     }
-
-    @keyframes loadingOut {
-        0% {
-            opacity: 1;
-            transform: scale(1);
-        }
-        100% {
-            opacity: 0;
-            transform: scale(1.5); /* 扩大元素以创建推出效果 */
-        }
+    .loading_out svg,
+    .loading_out p {
+        opacity: 0;
     }
 </style>

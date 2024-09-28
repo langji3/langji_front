@@ -1,14 +1,32 @@
 
 <template>
-  <Loading  v-if="loading"/>
+  <Loading ref="loadingComponent"/>
   <RouterView/>
 </template>
 <script setup lang="ts">
-  import { RouterView } from 'vue-router';
-  import Loading from '@/components/loading.vue';
-  import { storeToRefs } from 'pinia';
-  import { useLoadingStore } from './stores/loading';
-  const { loading } = storeToRefs(useLoadingStore());
+import { onMounted, ref } from 'vue';
+import { RouterView } from 'vue-router';
+import Loading from '@/components/loading.vue';
+import router from '@/router'
+const loadingComponent = ref()
+onMounted(()=>{
+  check_loading()
+  router.beforeEach((to,from,next)=>{
+    loadingComponent.value.in_act()
+    setTimeout(()=>{
+      next()
+      loadingComponent.value.out()
+    },1000)
+  })
+})
+function check_loading(){
+  let timer = setTimeout(() => {
+    if(document.readyState==='complete'){
+      loadingComponent.value.out()
+      clearTimeout(timer);
+    }
+  }, 300);
+}
 </script>
 <style>
 *{

@@ -5,5 +5,5 @@ export const useLoadingStore = defineStore('loading',()=>{
     function setLoading(value:boolean){
         loading.value=value;
     }
-    return{ loading,setLoading }
+    return{ loading,setLoading}
 })
