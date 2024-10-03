@@ -33,9 +33,14 @@ function check_loading(){
   margin:0;
   padding:0;
   box-sizing: border-box;
+
 }
 html{
 	font-size: 16px;
+}
+body{
+  background-image: url('../../langji_f/public/bg.png');
+  background-size: cover;
 }
 a{
 	text-decoration: none;
