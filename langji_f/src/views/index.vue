@@ -1,7 +1,7 @@
 <template>
       <div class="header">
         <div class="inner-header flex">
-          <el-avatar class="dynamic-avatar" :size="200" src="../../public/avatar.jpg"/>
+          <el-avatar class="dynamic-avatar" :size="200" src="/avatar.jpg"/>
         </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
