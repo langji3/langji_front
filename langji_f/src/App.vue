@@ -38,10 +38,7 @@ function check_loading(){
 html{
 	font-size: 16px;
 }
-body{
-  background-image: url('../../langji_f/public/bg.png');
-  background-size: cover;
-}
+
 a{
 	text-decoration: none;
 }
